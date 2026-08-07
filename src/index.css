@@ -26,7 +26,7 @@
 }
 html {
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 body {
@@ -35,15 +35,32 @@ body {
   color: var(--text);
   min-height: 100vh;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 #root {
   min-height: 100vh;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
   position: relative;
+}
+
+@media (min-width: 1024px) {
+  html,
+  body,
+  #root {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 1023px) {
+  html,
+  body,
+  #root {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 a {
   text-decoration: none;
