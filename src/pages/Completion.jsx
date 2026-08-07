@@ -118,7 +118,7 @@ function TrophySVG() {
   );
 }
 
-export default function Completion({ onRestart }) {
+export default function Completion({ onRestart, onHome }) {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     setTimeout(() => setVisible(true), 100);
@@ -132,8 +132,7 @@ export default function Completion({ onRestart }) {
           <TrophySVG />
         </div>
         <h1 className="completion-title">🎉 Congratulations!</h1>
-      
-      
+
         <div className="completion-badges">
           <div className="completion-badge" style={{ animationDelay: "0.3s" }}>
             🏠
@@ -151,14 +150,19 @@ export default function Completion({ onRestart }) {
             ✨
           </div>
         </div>
-        <button className="cta-button" onClick={onRestart} style={{ marginTop: "2rem" }}>
-          <span>Learn Again</span>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M3 10a7 7 0 0113-3.5M17 10a7 7 0 01-13 3.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            <path d="M16 3v4h-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M4 17v-4h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
+        <div className="completion-actions" style={{ marginTop: "2rem" }}>
+          <button className="cta-button" onClick={onRestart}>
+            <span>Learn Again</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M3 10a7 7 0 0113-3.5M17 10a7 7 0 01-13 3.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              <path d="M16 3v4h-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M4 17v-4h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+          <button className="back-btn home-btn" onClick={onHome}>
+            🧭 Main Menu
+          </button>
+        </div>
       </div>
     </div>
   );

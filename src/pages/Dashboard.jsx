@@ -78,7 +78,7 @@ function LessonCard({ lesson, index, onClick, isCompleted }) {
   );
 }
 
-export default function Dashboard({ completedLessons, onLessonSelect }) {
+export default function Dashboard({ completedLessons, onLessonSelect, onHome }) {
   const [visible, setVisible] = useState(false);
   const progress = completedLessons.length;
   const total = 5;
@@ -94,10 +94,15 @@ export default function Dashboard({ completedLessons, onLessonSelect }) {
           <div>
             <h2 className="dashboard-title">Choose Your Next Lesson</h2>
           </div>
-          <div className="dashboard-badge">
-            <span>
-              {progress}/{total} Completed
-            </span>
+          <div className="dashboard-actions">
+            <button className="back-btn home-btn" onClick={onHome}>
+              🧭 Main Menu
+            </button>
+            <div className="dashboard-badge">
+              <span>
+                {progress}/{total} Completed
+              </span>
+            </div>
           </div>
         </div>
       </div>

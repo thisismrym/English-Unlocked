@@ -8,7 +8,7 @@ const words = [
   { very: "Very Small", better: "Tiny", emoji: "🪶", color: "#4ADE80" },
 ];
 
-export default function Lesson5({ onComplete, onBack }) {
+export default function Lesson5({ onComplete, onBack, onHome }) {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     setTimeout(() => setVisible(true), 100);
@@ -17,12 +17,17 @@ export default function Lesson5({ onComplete, onBack }) {
   return (
     <div className={`lesson-page ${visible ? "visible" : ""}`}>
       <div className="lesson-header">
-        <button className="back-btn" onClick={onBack}>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M15 10H5M10 5l-5 5 5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          Back
-        </button>
+        <div className="lesson-header-actions">
+          <button className="back-btn" onClick={onBack}>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M15 10H5M10 5l-5 5 5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Back
+          </button>
+          <button className="back-btn home-btn" onClick={onHome}>
+            🧭 Main Menu
+          </button>
+        </div>
         <div className="lesson-progress-bar">
           <div className="lesson-progress-fill" style={{ width: "100%" }} />
         </div>
@@ -64,13 +69,7 @@ export default function Lesson5({ onComplete, onBack }) {
           ))}
         </div>
 
-        <div className="tip-box" style={{ borderColor: "rgba(251,191,36,0.3)" }}>
-          <div className="tip-icon">💡</div>
-          <div className="tip-content">
-            <h3>Pro Tip</h3>
-            <p>Native speakers rarely use "very + adjective". Using precise words makes you sound more fluent and confident.</p>
-          </div>
-        </div>
+       
 
         <div className="lesson-nav">
           <button

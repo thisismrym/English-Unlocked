@@ -1,5 +1,4 @@
 import { useState, useCallback } from "react";
-import Particles from "./components/Particles";
 import Navigation from "./components/Navigation";
 import Landing from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
@@ -22,6 +21,13 @@ function App() {
   const goHome = useCallback(() => {
     setPage("dashboard");
     setCurrentLesson(null);
+    setPageKey((k) => k + 1);
+  }, []);
+
+  const goToLanding = useCallback(() => {
+    setPage("landing");
+    setCurrentLesson(null);
+    setCompletedLessons([]);
     setPageKey((k) => k + 1);
   }, []);
 
@@ -58,12 +64,11 @@ function App() {
 
   return (
     <div className="app">
-      <Particles />
       <div className="app-content" key={pageKey}>
         {page === "landing" && <Landing onStart={startLearning} />}
-        {page === "dashboard" && <Dashboard completedLessons={completedLessons} onLessonSelect={openLesson} />}
-        {page === "lesson" && LessonComponent && <LessonComponent onComplete={completeLesson} onBack={goHome} />}
-        {page === "completion" && <Completion onRestart={restart} />}
+        {page === "dashboard" && <Dashboard completedLessons={completedLessons} onLessonSelect={openLesson} onHome={goToLanding} />}
+        {page === "lesson" && LessonComponent && <LessonComponent onComplete={completeLesson} onBack={goHome} onHome={goToLanding} />}
+        {page === "completion" && <Completion onRestart={restart} onHome={goToLanding} />}
       </div>
       {(page === "dashboard" || page === "lesson") && <Navigation currentLesson={currentLesson} completedLessons={completedLessons} onNavigate={openLesson} />}
     </div>

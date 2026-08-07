@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import houseImg from "../assets/images/lesson1/house.jpg";
 import homeImg from "../assets/images/lesson1/home.jpg";
 
-export default function Lesson1({ onComplete, onBack }) {
+export default function Lesson1({ onComplete, onBack, onHome }) {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     setTimeout(() => setVisible(true), 100);
@@ -11,12 +11,17 @@ export default function Lesson1({ onComplete, onBack }) {
   return (
     <div className={`lesson-page ${visible ? "visible" : ""}`}>
       <div className="lesson-header">
-        <button className="back-btn" onClick={onBack}>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M15 10H5M10 5l-5 5 5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          Back
-        </button>
+        <div className="lesson-header-actions">
+          <button className="back-btn" onClick={onBack}>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M15 10H5M10 5l-5 5 5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Back
+          </button>
+          <button className="back-btn home-btn" onClick={onHome}>
+            🧭 Main Menu
+          </button>
+        </div>
         <div className="lesson-progress-bar">
           <div className="lesson-progress-fill" style={{ width: "100%" }} />
         </div>

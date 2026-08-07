@@ -25,6 +25,8 @@
   --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 html {
+  height: 100%;
+  overflow: hidden;
   scroll-behavior: smooth;
 }
 body {
@@ -32,12 +34,15 @@ body {
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
-  overflow-x: hidden;
+  height: 100%;
+  overflow: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 #root {
   min-height: 100vh;
+  height: 100%;
+  overflow: hidden;
   position: relative;
 }
 a {

@@ -11,7 +11,9 @@
 .app-content {
   position: relative;
   z-index: 1;
-  min-height: 100vh;
+  min-height: 100dvh;
+  padding-bottom: 6rem;
+  box-sizing: border-box;
 }
 
 /* ── PAGE TRANSITIONS ── */
@@ -562,11 +564,12 @@
   left: 0;
   right: 0;
   z-index: 50;
-  padding: 0.75rem 1rem 1rem;
-  background: rgba(13, 17, 23, 0.85);
+  padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
+  background: rgba(13, 17, 23, 0.9);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-top: 1px solid var(--glass-border);
+  box-shadow: 0 -10px 30px rgba(2, 6, 23, 0.35);
 }
 .nav-inner {
   display: flex;
@@ -644,7 +647,7 @@
    LESSON PAGES (shared)
    ══════════════════════════════════════════════════════════════ */
 .lesson-page {
-  height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   max-width: 1000px;
@@ -666,9 +669,16 @@
   animation: fadeSlideUp 0.5s ease both;
 }
 
+.lesson-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
 .lesson-content {
   flex: 1;
-  overflow-y: auto;
+  overflow: hidden;
   padding: 1.5rem 2rem 5rem;
   animation: fadeSlideUp 0.6s ease both 0.1s;
 }
@@ -676,7 +686,7 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.9rem;
   background: var(--surface);
   border: 1px solid var(--glass-border);
   border-radius: 10px;
@@ -684,6 +694,13 @@
   font-size: 0.85rem;
   font-weight: 600;
   transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.home-btn {
+  background: rgba(74, 222, 128, 0.12);
+  border-color: rgba(74, 222, 128, 0.2);
+  color: var(--accent);
 }
 .back-btn:hover {
   background: var(--surface2);
@@ -711,42 +728,42 @@
 
 .lesson-title-area {
   text-align: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.8rem;
 }
 .lesson-icon-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  font-size: 1.5rem;
-  margin-bottom: 0.75rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  margin-bottom: 0.45rem;
 }
 .lesson-main-title {
-  font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+  font-size: clamp(1.35rem, 2.8vw, 1.9rem);
   font-weight: 800;
   letter-spacing: -0.02em;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
 }
 .lesson-main-subtitle {
   color: var(--text2);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 /* ── Comparison Cards (Lesson 1) ── */
 .comparison-cards {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  gap: 1rem;
+  gap: 0.75rem;
   align-items: stretch;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 .comparison-card {
   background: var(--surface);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius);
-  padding: 1.25rem;
+  padding: 0.9rem;
   text-align: center;
   transition: all 0.4s ease;
   animation: fadeSlideUp 0.6s ease both;
@@ -767,7 +784,7 @@
 
 .lesson-img-frame {
   width: 100%;
-  aspect-ratio: 16 / 7;
+  aspect-ratio: 16 / 8;
   overflow: hidden;
 }
 
@@ -779,21 +796,21 @@
 }
 
 .comp-card-title {
-  font-size: 1.4rem;
+  font-size: 1.15rem;
   font-weight: 800;
-  margin-top: 0.75rem;
-  margin-bottom: 0.3rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
 }
 .comp-card-def {
   color: var(--text2);
-  font-size: 0.95rem;
-  margin-bottom: 1.25rem;
-  line-height: 1.5;
+  font-size: 0.85rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
 }
 .comp-card-example {
   background: var(--surface2);
   border-radius: var(--radius-sm);
-  padding: 0.75rem;
+  padding: 0.6rem;
 }
 .comp-card-example.accent {
   background: var(--accent-dim);
@@ -808,9 +825,9 @@
   display: block;
 }
 .example-text {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--text);
-  margin-top: 0.3rem;
+  margin-top: 0.2rem;
   font-style: italic;
 }
 
@@ -847,29 +864,29 @@
 .tip-box {
   display: flex;
   align-items: flex-start;
-  gap: 0.75rem;
-  padding: 0.85rem 1rem;
+  gap: 0.6rem;
+  padding: 0.7rem 0.85rem;
   background: var(--accent-dim);
   border: 1px solid rgba(74, 222, 128, 0.2);
   border-radius: var(--radius);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   animation: fadeSlideUp 0.6s ease both 0.5s;
 }
 .tip-icon {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   flex-shrink: 0;
-  margin-top: 0.1rem;
+  margin-top: 0.05rem;
 }
 .tip-content h3 {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--accent);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
 }
 .tip-content p {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 .tip-content strong {
   color: var(--accent);
@@ -879,22 +896,23 @@
 .lesson-nav {
   display: flex;
   justify-content: center;
-  padding-top: 0.5rem;
-  animation: fadeSlideUp 0.6s ease both 0.6s;
+  margin-top: 1.2rem;
 }
 .lesson-next-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.6rem;
-  padding: 0.85rem 2rem;
+  padding: 0.95rem 1.6rem;
   background: var(--accent);
   color: var(--bg);
-  font-size: 0.95rem;
-  font-weight: 700;
-  border-radius: 14px;
   border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(74, 222, 128, 0.2);
 }
 .lesson-next-btn:hover {
   transform: translateY(-2px);
@@ -912,8 +930,8 @@
 .three-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 @media (max-width: 750px) {
   .three-cards-grid {
@@ -925,7 +943,7 @@
   background: var(--surface);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius);
-  padding: 1.25rem;
+  padding: 0.9rem;
   text-align: center;
   transition: all 0.4s ease;
   animation: fadeSlideUp 0.6s ease both;
@@ -946,20 +964,20 @@
 }
 
 .verb-card-title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 800;
-  margin-top: 0.75rem;
-  margin-bottom: 0.4rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 .verb-card-def {
   color: var(--text2);
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-  line-height: 1.5;
+  font-size: 0.8rem;
+  margin-bottom: 0.7rem;
+  line-height: 1.4;
 }
 .verb-card-usage {
   display: inline-block;
-  padding: 0.35rem 0.9rem;
+  padding: 0.3rem 0.75rem;
   border-radius: 100px;
   border: 1px solid;
   font-size: 0.8rem;
@@ -978,8 +996,8 @@
 .four-cards-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 0.45rem;
+  margin-bottom: 0.45rem;
 }
 @media (max-width: 600px) {
   .four-cards-grid {
@@ -991,7 +1009,7 @@
   background: var(--surface);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius);
-  padding: 1.25rem;
+  padding: 0.6rem;
   text-align: center;
   transition: all 0.4s ease;
   animation: fadeSlideUp 0.6s ease both;
@@ -1016,27 +1034,50 @@
 }
 
 .talk-card-word {
-  font-size: 1.3rem;
+  font-size: 0.95rem;
   font-weight: 800;
-  margin-top: 0.75rem;
-  margin-bottom: 0.3rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.1rem;
 }
 .talk-card-def {
   color: var(--text2);
-  font-size: 0.85rem;
-  margin-bottom: 0.75rem;
+  font-size: 0.7rem;
+  margin-bottom: 0.35rem;
 }
 .talk-card-usage {
   display: inline-block;
-  padding: 0.3rem 0.8rem;
+  padding: 0.18rem 0.55rem;
   border-radius: 100px;
   border: 1px solid;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.55rem;
 }
 .talk-card-example {
   color: var(--text2);
-  font-size: 0.85rem;
+  font-size: 0.72rem;
   font-style: italic;
+}
+
+.four-cards-grid + .tip-box {
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 0.4rem;
+}
+
+.four-cards-grid + .tip-box .tip-icon {
+  font-size: 1rem;
+}
+
+.four-cards-grid + .tip-box .tip-content p {
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.four-cards-grid + .tip-box + .lesson-nav {
+  margin-top: 1.2rem;
+}
+
+.four-cards-grid + .tip-box + .lesson-nav .lesson-next-btn {
+  padding: 0.7rem 1.1rem;
+  font-size: 0.9rem;
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -1045,8 +1086,8 @@
 .upgrade-list {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-  margin-bottom: 1rem;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -1055,8 +1096,8 @@
 .upgrade-card {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1.25rem 1.5rem;
+  gap: 0.75rem;
+  padding: 1.3rem 1rem;
   background: var(--surface);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius);
@@ -1079,7 +1120,7 @@
   font-size: 1.5rem;
 }
 .upgrade-word {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 600;
 }
 .upgrade-word.old {
@@ -1104,7 +1145,7 @@
   justify-content: flex-end;
 }
 .upgrade-word.new {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 800;
 }
 .upgrade-badge {
@@ -1132,8 +1173,8 @@
 .english-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-bottom: 2.5rem;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
 }
 @media (max-width: 600px) {
   .english-grid {
@@ -1144,7 +1185,7 @@
 .english-card {
   border: 1px solid;
   border-radius: var(--radius);
-  padding: 1.5rem;
+  padding: 1rem;
   text-align: center;
   transition: all 0.4s ease;
   animation: scaleIn 0.5s ease both;
@@ -1192,7 +1233,7 @@
 .completion-content {
   text-align: center;
   max-width: 600px;
-  padding: 2rem;
+  padding: 1.25rem;
   animation: scaleIn 0.6s ease both;
 }
 
