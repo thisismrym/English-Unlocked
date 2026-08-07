@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import lookImg from "../assets/images/lesson2/look.jpg";
-import seeImg from "../assets/images/lesson2/see.jpg";
-import watchImg from "../assets/images/lesson2/watch.jpg";
+import lookImg from "../assets/images/lesson2/look.webp";
+import seeImg from "../assets/images/lesson2/see.webp";
+import watchImg from "../assets/images/lesson2/watch.webp";
 
 const verbs = [
   {

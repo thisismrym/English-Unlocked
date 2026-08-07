@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import houseImg from "../assets/images/lesson1/house.jpg";
-import homeImg from "../assets/images/lesson1/home.jpg";
+import houseImg from "../assets/images/lesson1/house.webp";
+import homeImg from "../assets/images/lesson1/home.webp";
 
 export default function Lesson1({ onComplete, onBack, onHome }) {
   const [visible, setVisible] = useState(false);

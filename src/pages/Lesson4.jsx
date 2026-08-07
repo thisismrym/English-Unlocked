@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import sayImg from "../assets/images/lesson4/say.png";
+import sayImg from "../assets/images/lesson4/say.webp";
 import tellImg from "../assets/images/lesson4/tell.png";
 
 export default function Lesson4({ onComplete, onBack, onHome }) {

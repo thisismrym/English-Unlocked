@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import hearImg from "../assets/images/lesson3/hear.png";
-import listenImg from "../assets/images/lesson3/listen.jpg";
+import hearImg from "../assets/images/lesson3/hear.webp";
+import listenImg from "../assets/images/lesson3/listen.webp";
 
 const verbs = [
   {
