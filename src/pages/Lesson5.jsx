@@ -25,7 +25,7 @@ export default function Lesson5({ onComplete, onBack, onHome }) {
             Back
           </button>
           <button className="back-btn home-btn" onClick={onHome}>
-            🧭 Main Menu
+             Main Menu
           </button>
         </div>
         <div className="lesson-progress-bar">
